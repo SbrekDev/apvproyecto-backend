@@ -11,7 +11,7 @@ dotenv.config();
 
 conectarDB();
 
-const dominiosPermitidos = [process.env.FRONTEND_URL];
+const dominiosPermitidos = '*';
 
 const corsOptions = {
     origin: function(origin, callback){
@@ -24,7 +24,7 @@ const corsOptions = {
     }
 }
 
-app.use(cors( {origin: '*'}))
+app.use(cors( corsOptions))
 
 app.use('/api/veterinarios', veterinarioRoutes);
 app.use('/api/pacientes', pacienteRoutes);
